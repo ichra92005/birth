@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday! 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: #ffebee;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            text-shadow: 2px 2px #fff;
+            animation: bounce 2s infinite;
+        }
+
+        .photo-frame {
+            border: 15px solid #fff;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .message {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 20px;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, [Friend's Name]! 🎂</h1>
+        
+        <img class="photo-frame" src="FRIEND_PHOTO_URL" alt="Birthday Person" width="400">
+        
+        <div class="message">
+            <p>🎈 To the most amazing friend in the world! 🎈</p>
+            <p>On your special day, I want you to know...</p>
+            <p>[Your Personal Message Here]</p>
+            <p>Wishing you endless joy and laughter! 🥳</p>
+        </div>
+
+        <button onclick="throwConfetti()">Click for Surprise! 🎊</button>
+    </div>
+
+    <script>
+        function throwConfetti() {
+            for(let i = 0; i < 100; i++) {
+                createConfetti();
+            }
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            // Random position and color
+            confetti.style.left = Math.random() * 100 + "%";
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            
+            // Animation
+            confetti.style.animation = 
+                `confettiFall ${Math.random() * 3 + 2}s linear`;
+            
+            document.body.appendChild(confetti);
+            
+            // Remove after animation
+            setTimeout(() => confetti.remove(), 5000);
+        }
+
+        // Add confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confettiFall {
+                0% { transform: translateY(-100vh) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
