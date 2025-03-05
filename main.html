@@ -143,6 +143,34 @@
             pointer-events: none;
             z-index: 9999;
         }
+        .arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    color: #ff4081;
+}
+
+.left-arrow {
+    left: 15px;
+}
+
+.right-arrow {
+    right: 15px;
+}
+
+.arrow-btn:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+}
     </style>
 </head>
 <body>
@@ -151,6 +179,8 @@
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0elmUoU7eMPwZX1Mw1MnQo?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         
         <div class="slider-container">
+             <button class="arrow-btn left-arrow" onclick="prevSlide()">❮</button>
+             <button class="arrow-btn right-arrow" onclick="nextSlide()">❯</button>
             <div class="slider" id="slider">
                 
                 <div class="slide">
